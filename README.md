@@ -1,15 +1,17 @@
+### Forked from https://github.com/shestera/terraform-yandex-vpc
+
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.13 |
-| yandex | ~> 0.44.0 |
+| terraform | >= 1.1.0 |
+| yandex | ~> 0.61.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| yandex | ~> 0.44.0 |
+| yandex | ~> 0.61.0 |
 
 ## Inputs
 
