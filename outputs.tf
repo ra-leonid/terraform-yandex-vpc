@@ -12,9 +12,10 @@ output "subnet_zones" {
 }
 
 output "subnets" {
-  value = { for v in yandex_vpc_subnet.this : v.zone => tomap(
+  value = { for v in yandex_vpc_subnet.this : v.zone => tomap({
     "id", v.id,
     "name", v.name,
     "zone", v.zone
+  }
   ) }
 }
