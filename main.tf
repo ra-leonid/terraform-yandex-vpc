@@ -1,8 +1,19 @@
+resource "yandex_resourcemanager_folder" "folder" {
+  count = var.create_folder ? 1 : 0
+  cloud_id = var.yc_cloud_id
+  name = terraform.workspace
+  description = "terraform managed"
+}
+
 resource "yandex_vpc_network" "this" {
   name        = var.name
   description = "${var.description} ${var.name} network"
+  folder_id   = var.create_folder ? yandex_resourcemanager_folder.folder[0].id : var.yc_folder_id
 
   labels = var.labels
+  depends_on = [
+    yandex_resourcemanager_folder.folder
+  ]
 }
 
 resource "yandex_vpc_subnet" "public" {
@@ -69,13 +80,14 @@ resource "yandex_vpc_route_table" "nat_instance" {
 }
 
 resource "yandex_vpc_subnet" "this" {
-  for_each       = { for z in var.subnets : z.zone => z }
+  for_each       = {for z in var.subnets : z.zone => z}
   name           = "${var.name}-${each.value.zone}"
   description    = "${var.description} ${var.name} subnet for zone ${each.value.zone}"
   v4_cidr_blocks = each.value.v4_cidr_blocks
   zone           = each.value.zone
   network_id     = yandex_vpc_network.this.id
   labels         = var.labels
+  folder_id      = var.create_folder ? yandex_resourcemanager_folder.folder[0].id : var.yc_folder_id
 
   route_table_id = var.nat_instance ? yandex_vpc_route_table.nat_instance[0].id : null
 
