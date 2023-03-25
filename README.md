@@ -12,13 +12,13 @@ This module creates folder in your cloud if needed (create_folder = true) and ad
 | Name | Version |
 |------|---------|
 | terraform | >= 1.1.0 |
-| yandex | ~> 0.61.0 |
+| yandex | ~> 0.88.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| yandex | ~> 0.61.0 |
+| yandex | ~> 0.88.0 |
 
 ## Inputs
 
@@ -52,7 +52,7 @@ terraform {
   required_providers {
     yandex = {
       source  = "yandex-cloud/yandex"
-      version = "0.61.0"
+      version = "0.88.0"
     }
   }
 }
