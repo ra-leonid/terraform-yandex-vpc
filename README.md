@@ -31,6 +31,8 @@ This module creates folder in your cloud if needed (create_folder = true) and ad
 | name | Name to be used on all the resources as identifier | `string` | n/a | yes |
 | nat\_instance | n/a | `bool` | `false` | no |
 | nat\_instance\_zone | The availability zone where the nat-instance will be created. | `string` | `"ru-central1-a"` | no |
+| nat\_username | User to connect to nat-instance. | `string` | `nat_user` | no |
+| nat\_id\_rsa\_pub | The public part of the user's ssh key for connecting to the nat-instance | `string` | `~/.ssh/id_rsa.pub` | no |
 | subnets | n/a | <pre>list(object({<br>    zone           = string<br>    v4_cidr_blocks = list(string)<br>  }))</pre> | <pre>[<br>  {<br>    "v4_cidr_blocks": [<br>      "10.130.0.0/24"<br>    ],<br>    "zone": "ru-central1-a"<br>  },<br>  {<br>    "v4_cidr_blocks": [<br>      "10.129.0.0/24"<br>    ],<br>    "zone": "ru-central1-b"<br>  },<br>  {<br>    "v4_cidr_blocks": [<br>      "10.128.0.0/24"<br>    ],<br>    "zone": "ru-central1-c"<br>  }<br>]</pre> | no |
 
 ## Outputs

@@ -64,3 +64,15 @@ variable "nat_instance_zone" {
   type        = string
   default     = "ru-central1-a"
 }
+
+variable "nat_username" {
+  description = "User to connect to nat-instance."
+  type        = string
+  default     = "nat_user"
+}
+
+variable "nat_id_rsa_pub" {
+  description = "The public part of the user's ssh key for connecting to the nat-instance"
+  type        = string
+  default     = "~/.ssh/id_rsa.pub"
+}

@@ -59,6 +59,10 @@ resource "yandex_compute_instance" "nat_instance" {
     subnet_id = yandex_vpc_subnet.public[0].id
   }
 
+  metadata = {
+    ssh-keys = "${var.nat_username}:${file(var.nat_id_rsa_pub)}"
+  }
+
   depends_on = [
     yandex_vpc_subnet.public
   ]
