@@ -44,6 +44,8 @@ This module creates folder in your cloud if needed (create_folder = true) and ad
 | subnet\_zones | n/a |
 | subnets | n/a |
 | folder_id | The ID of created Folder |
+| nat_ip_address | n/a |
+| nat_username | n/a |
 
 ## Usage
 

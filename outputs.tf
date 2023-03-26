@@ -23,3 +23,11 @@ output "subnets" {
   }
   ) }
 }
+
+output "nat_ip_address" {
+  value = yandex_compute_instance.nat_instance[0].network_interface.0.nat_ip_address
+}
+
+output "nat_username" {
+  value = var.nat_username
+}
