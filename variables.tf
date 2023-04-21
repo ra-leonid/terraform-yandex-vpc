@@ -74,5 +74,6 @@ variable "nat_username" {
 variable "nat_id_rsa_pub" {
   description = "The public part of the user's ssh key for connecting to the nat-instance"
   type        = string
-  default     = "~/.ssh/id_rsa.pub"
+  default     = ""
+  sensitive = true
 }
